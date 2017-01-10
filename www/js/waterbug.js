@@ -29,7 +29,7 @@ var dx = 0;
 var image;
 var imageFilename = 'image';
 var currentCopyright;
-var credit = 'Belal Khan/Flickr'
+var credit = 'Belal Khan\u2005/\u2005Flickr'.toUpperCase();
 var shallowImage = false;
 
 
@@ -37,6 +37,7 @@ var shallowImage = false;
 var ctx;
 var img = new Image();
 var logo = new Image();
+var scrim = new Image();
 
 
 var onDocumentLoad = function(e) {
@@ -60,8 +61,11 @@ var onDocumentLoad = function(e) {
 
     img.src = defaultImage;
     img.onload = onImageLoad;
+    scrim.src = scrimSrc;
+    scrim.onload = renderCanvas;
     logo.src = defaultLogo;
     logo.onload = renderCanvas;
+
 
     $photographer.on('keyup', renderCanvas);
     $source.on('keyup', renderCanvas);
@@ -192,21 +196,29 @@ var renderCanvas = function() {
     }
 
     // set alpha channel, draw the logo
-    if (currentLogoColor === 'white') {
-        ctx.globalAlpha = whiteLogoAlpha;
-    } else {
-        ctx.globalAlpha = blackLogoAlpha;
-    }
+    // if (currentLogoColor === 'white') {
+    //     ctx.globalAlpha = whiteLogoAlpha;
+    // } else {
+    //     ctx.globalAlpha = blackLogoAlpha;
+    // }
     ctx.drawImage(
         logo,
-        elementPadding,
-        currentLogo === 'npr'? elementPadding : elementPadding - 14,
+        canvas.width - (logos[currentLogo]['w']),
+        0,
         logos[currentLogo]['w'],
         logos[currentLogo]['h']
     );
 
+    ctx.drawImage(
+        scrim,
+        0,
+        canvas.height - scrim.height,
+        canvas.width,
+        scrim.height
+    );
+
     // reset alpha channel so text is not translucent
-    ctx.globalAlpha = "1";
+    // ctx.globalAlpha = "1";
 
     // draw the text
     ctx.textBaseline = 'bottom';
@@ -228,8 +240,8 @@ var renderCanvas = function() {
     var creditWidth = ctx.measureText(credit);
     ctx.fillText(
         credit,
-        canvas.width - (creditWidth.width + elementPadding),
-        canvas.height - elementPadding
+        elementPadding,
+        canvas.height - elementPadding / 1.75
     );
 
     validateForm();
@@ -244,9 +256,9 @@ var buildCreditString = function() {
 
     if ($photographer.val() !== '') {
         if (copyrightOptions[val]['source']) {
-            creditString = $photographer.val() + '/' + copyrightOptions[val]['source'];
+            creditString = $photographer.val() + '\u2005/\u2005' + copyrightOptions[val]['source'];
         } else {
-            creditString = $photographer.val() + '/' + $source.val();
+            creditString = $photographer.val() + '\u2005/\u2005' + $source.val();
         }
     } else {
         if (copyrightOptions[val]['source']) {
@@ -272,7 +284,7 @@ var buildCreditString = function() {
         }
     }
 
-    return creditString;
+    return creditString.toUpperCase();
 }
 
 
