@@ -2,6 +2,17 @@
 {{ JS.push('js/lib/webfont.js') }}
 {{ JS.render('js/webfont.min.js') }}
 <script>
-	// Define your web fonts here.
-	// See https://github.com/typekit/webfontloader for documentation
+
+var urls = [
+  'https://static.axios.com/fonts/stylesheet.css',
+  'https://static.axios.com/fonts/atiza.css'
+]
+
+WebFont.load({
+  custom: {
+    families: ['gordita', 'gorditamedium', 'gorditabold', 'atiza_textregular', 'atiza_textbold', 'atiza_textitalic'],
+    urls: urls
+  },
+  timeout: 10000
+});
 </script>
