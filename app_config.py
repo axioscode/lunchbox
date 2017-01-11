@@ -15,7 +15,7 @@ NAMES
 """
 # Project name to be used in urls
 # Use dashes, not underscores!
-PROJECT_SLUG = 'lunchbox-test'
+PROJECT_SLUG = 'lunchbox'
 
 # Project name to be used in file paths
 PROJECT_FILENAME = 'lunchbox'
@@ -31,8 +31,8 @@ DEV_CONTACT = 'EDIT THIS IN APP_CONFIG.PY'
 """
 DEPLOYMENT
 """
-PRODUCTION_S3_BUCKET = 'apps.npr.org'
-STAGING_S3_BUCKET = 'stage-apps.npr.org'
+PRODUCTION_S3_BUCKET = 'tools.axios.com'
+# STAGING_S3_BUCKET = 'stage-apps.npr.org'
 DEFAULT_MAX_AGE = 20
 
 FILE_SERVER_USER = 'ubuntu'
