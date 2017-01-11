@@ -9,12 +9,12 @@
 <div class="content">
     <div class="poster-wrapper">
         <div class="poster quote poster-news">
-            <span class="left-quote">&ldquo;</span>
-            <blockquote><p></p></blockquote>
-
-            <p class="source"></p>
-            <p class="show-credit"></p>
-
+            <div class="quotemark"></div>
+            <div class="text">
+              <blockquote><p></p></blockquote>
+              <p class="source"></p>
+              <p class="show-credit"></p>
+            </div>
             <p class="logo-wrapper"></p>
         </div>
     </div>
@@ -24,15 +24,18 @@
                 <div class="controls-wrapper">
                     <div class="form-group">
                         <label for="fontsize">Font size</label>
-                        <input id="fontsize" name="fontsize" type="range" min="24" max="120" value="90">
+                        <input id="fontsize" name="fontsize" type="range" min="30" max="45" value="35">
                     </div>
                     <div class="form-group">
                         <label for="theme">Theme</label>
                         <div id="theme" class="btn-group-vertical">
-                            <button id="theme1" class="btn btn-primary active">Light</button>
-                            <button id="theme2" class="btn btn-primary">Dark</button>
-                            <button id="theme3" class="btn btn-primary">Blue</button>
-                            <button id="theme4" class="btn btn-primary">Salmon</button>
+                            <button id="theme1" class="btn btn-primary active">Black</button>
+                            <button id="theme2" class="btn btn-primary">Blue</button>
+                            <button id="theme3" class="btn btn-primary">Navy</button>
+                            <button id="theme4" class="btn btn-primary">Red</button>
+                            <button id="theme5" class="btn btn-primary">Orange</button>
+                            <button id="theme6" class="btn btn-primary">Khaki</button>
+                            <button id="theme7" class="btn btn-primary">Purple</button>
                         </div>
                     </div>
                     <div class="form-group">
@@ -50,7 +53,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="show">Attribution <span class="help">(e.g. Morning Edition)</span></label>
+                        <label for="show">Subhead <span class="help">(e.g. Speaker's title or other context)</span></label>
                         <input id="show" class="form-control" name="fontsize" type="text">
                     </div>
                     <div class="form-group">

@@ -8,6 +8,7 @@ var $fontSize = null;
 var $show = null;
 var $source = null;
 var $quote = null;
+var $quotemark = null;
 var $logoWrapper = null;
 
 var quotes = [
@@ -22,17 +23,17 @@ var quotes = [
     {
         "quote": "Yes, I have smoked crack cocaine",
         "source": "Toronto Mayor Rob Ford",
-        "size": 65
+        "size": 50
     },
     {
         "quote": "Annyong.",
         "source": "Annyong",
-        "size": 90
+        "size": 50
     },
     {
         "quote": "STEVE HOLT!",
         "source": "Steve Holt",
-        "size": 65
+        "size": 45
     },
     {
         "quote": "Whoa, whoa, whoa. There's still plenty of meat on that bone. Now you take this home, throw it in a pot, add some broth, a potato. Baby, you've got a stew going.",
@@ -69,11 +70,11 @@ function processText() {
 }
 
 function saveImage() {
-    // first check if the quote actually fits
-    if (($source.offset().top + $source.height()) > $logoWrapper.offset().top) {
-        alert("Your quote doesn't quite fit. Shorten the text or choose a smaller font-size.");
-        return;
-    }
+    // // first check if the quote actually fits
+    // if (($source.offset().top + $source.height()) > $logoWrapper.offset().top) {
+    //     alert("Your quote doesn't quite fit. Shorten the text or choose a smaller font-size.");
+    //     return;
+    // }
 
     // don't print placeholder text if source is empty
     if ($source.text() === '') {
@@ -82,9 +83,9 @@ function saveImage() {
     }
 
     // make sure source begins with em dash
-    if (!$source.text().match(/^[\u2014]/g)) {
-        $source.html('&mdash;&thinsp;' + $source.text());
-    }
+    // if (!$source.text().match(/^[\u2014]/g)) {
+    //     $source.html('&mdash;&thinsp;' + $source.text());
+    // }
 
     $('canvas').remove();
     processText();
@@ -114,6 +115,7 @@ function saveImage() {
 function adjustFontSize(size) {
     var fontSize = size.toString() + 'px';
     $poster.css('font-size', fontSize);
+    $quotemark.css('font-size', (size * 3).toString() + 'px');
     if ($fontSize.val() !== size){
         $fontSize.val(size);
     };
@@ -130,6 +132,7 @@ $(function() {
     $source = $('.source');
     $showCredit = $('.show-credit');
     $quote = $('#quote');
+    $quotemark = $('.quotemark');
     $logoWrapper = $('.logo-wrapper');
 
     var quote = quotes[Math.floor(Math.random()*quotes.length)];
@@ -137,7 +140,7 @@ $(function() {
         adjustFontSize(quote.size);
     }
     $('blockquote p').text(quote.quote);
-    $source.html('&mdash;&thinsp;' + quote.source);
+    $source.html(quote.source);
     processText();
 
     $save.on('click', saveImage);
@@ -145,7 +148,7 @@ $(function() {
     $themeButtons.on('click', function() {
         $themeButtons.removeClass().addClass('btn btn-primary');
         $(this).addClass('active');
-        $poster.removeClass('poster-theme1 poster-theme2 poster-theme3 poster-theme4')
+        $poster.removeClass('poster-theme1 poster-theme2 poster-theme3 poster-theme4 poster-theme5 poster-theme6 poster-theme7 poster-theme8')
                     .addClass('poster-' + $(this).attr('id'));
     });
 
@@ -154,13 +157,13 @@ $(function() {
         $(this).addClass('active');
         $poster.removeClass('square sixteen-by-nine').addClass($(this).attr('id'));
 
-        if ($poster.hasClass('sixteen-by-nine')) {
-            adjustFontSize(32);
-            $fontSize.val(32);
-        } else {
-            adjustFontSize(90);
-            $fontSize.val(90);
-        }
+        // if ($poster.hasClass('sixteen-by-nine')) {
+        //     adjustFontSize(32);
+        //     $fontSize.val(32);
+        // } else {
+        //     adjustFontSize(90);
+        //     $fontSize.val(90);
+        // }
     });
 
     $quote.on('click', function() {

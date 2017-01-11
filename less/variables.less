@@ -1,18 +1,25 @@
 // basic configuration
 @font-family: 'gordita', "Comic Sans MS", Helvetica, Arial, Verdana, sans-serif;
+@font-family-medium: 'gorditamedium', "Comic Sans MS", Helvetica, Arial, Verdana, sans-serif;
+
 @font-family-serif: 'atiza_textregular', Georgia, serif;
+@font-family-serif-italic: 'atiza_textitalic', Georgia, serif;
 @condensed-font-family: "gordita", Helvetica, Arial, Verdana, sans-serif;
-@bg-color: #fff; // background color of canvas poster
-@text-color: #4a4a4a; // color of text on canvas
 
-@logo-path: url('../img/icon-axios-black.png');
-@logo-sq-width: 168px;
-@logo-sq-height: 42px;
-@logo-16x9-width: 120px;
-@logo-16x9-height: 30px;
+@bg-color: #222222; // background color of canvas poster
+@text-color: #fff; // color of text on canvas
+@secondary-color: #323232;
 
-@padding: 30px;
-@base-font-size: 17px;
+@quote-mark-path: url('../img/Quote_on_Black@2x.png');
+@quote-width: 39px;
+@quote-height: 36px;
+
+@logo-path: url('../img/A_on_Black@2x.png');
+@logo-width: 51px * 1.1;
+@logo-height: 45px * 1.1;
+
+@padding: 22px;
+@base-font-size: 18px;
 @line-height-base: 20/14;
 @line-height: floor(@base-font-size * @line-height-base);
 
@@ -39,29 +46,38 @@
 
 
 // themes
-@theme2-bg-color: #1b1b1b;
-@theme2-text-color: #fff;
-@theme2-credit-color: #626262;
-@theme2-logo-path: url('../img/icon-axios-white.png');
-@theme2-sq-logo-width: @logo-sq-width;
-@theme2-sq-logo-height: @logo-sq-height;
-@theme2-16x9-logo-width: @logo-16x9-width;
-@theme2-16x9-logo-height: @logo-16x9-height;
+//blue
+@theme2-bg-color: #008dc8;
+@theme2-secondary-color: #175B87;
+@theme2-logo-path: url('../img/A_on_Blue@2x.png');
+@theme2-quote-mark-path: url('../img/Quote_on_Blue@2x.png');
 
-@theme3-bg-color: #008dc8;
-@theme3-text-color: #F9F9F9;
-@theme3-credit-color: #ccc;
-@theme3-logo-path: url('../img/icon-axios-bw-white.png');
-@theme3-sq-logo-width: @logo-sq-width;
-@theme3-sq-logo-height: @logo-sq-height;
-@theme3-16x9-logo-width: @logo-16x9-width;
-@theme3-16x9-logo-height: @logo-16x9-height;
+//navy
+@theme3-bg-color: #01356E;
+@theme3-secondary-color: #175B87;
+@theme3-logo-path: url('../img/A_on_Navy@2x.png');
+@theme3-quote-mark-path: url('../img/Quote_on_Navy@2x.png');
 
-@theme4-bg-color: #B09D86;
-@theme4-text-color: #F9F9F9;
-@theme4-credit-color: #ccc;
-@theme4-logo-path: url('../img/icon-axios-bw-black.png');
-@theme4-sq-logo-width: @logo-sq-width;
-@theme4-sq-logo-height: @logo-sq-height;
-@theme4-16x9-logo-width: @logo-16x9-width;
-@theme4-16x9-logo-height: @logo-16x9-height;
+//navy
+@theme4-bg-color: #E74E29;
+@theme4-secondary-color: #AB361A;
+@theme4-logo-path: url('../img/A_on_Red@2x.png');
+@theme4-quote-mark-path: url('../img/Quote_on_Red@2x.png');
+
+//navy
+@theme5-bg-color: #FF6602;
+@theme5-secondary-color: #CA5508;
+@theme5-logo-path: url('../img/A_on_Orange@2x.png');
+@theme5-quote-mark-path: url('../img/Quote_on_Orange@2x.png');
+
+//khaki
+@theme6-bg-color: #B09D86;
+@theme6-secondary-color: #7F684E;
+@theme6-logo-path: url('../img/A_on_Khaki@2x.png');
+@theme6-quote-mark-path: url('../img/Quote_on_Khaki@2x.png');
+
+//purple
+@theme7-bg-color: #5827AE;
+@theme7-secondary-color: #310F6B;
+@theme7-logo-path: url('../img/A_on_Purple@2x.png');
+@theme7-quote-mark-path: url('../img/Quote_on_Purple@2x.png');
