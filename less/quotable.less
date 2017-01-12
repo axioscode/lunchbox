@@ -24,8 +24,9 @@ canvas {
 .content {
     display: table;
     width: 100%;
-    max-width: 1200px;
-    min-width: 640px;
+    max-width: 1480px;
+    min-width: 1280px;
+    min-height: 1480px;
     margin: 0 auto;
 
     .poster-wrapper,
@@ -35,7 +36,9 @@ canvas {
     }
 
     .poster-wrapper {
-        width: 640px;
+        width: 1280px;
+        min-height: 1280px;
+        zoom: 0.5;
     }
 
     @media screen and (max-width: @screen-sm-max){
@@ -135,28 +138,28 @@ canvas {
 
 
 .main-help {
-    margin: 25px;
-    font-size: 12px;
+    margin: 25px * 2;
+    font-size: 12px * 2;
     text-transform: uppercase;
     letter-spacing: 0.05rem;
     font-family: @condensed-font-family;
     color: @gray-light;
 
     @media screen and (max-width: 699px){
-        top: 185px;
+        top: 185px * 2;
         width: 100%;
         padding-left: @grid-gutter-width;
     }
 }
 
 .poster {
-    height: 640px;
-    width: 640px;
+    height: 1280px;
+    width: 1280px;
     background: @bg-color;
-    margin: @line-height;
+    margin: @line-height * 2;
     position: relative;
-    padding: @padding * 2;
-    font-size: @base-font-size * 5;
+    padding: (@padding * 2) * 2;
+    font-size: (@base-font-size * 5) * 2;
     line-height: 1 !important;
     overflow: hidden;
     color: @text-color;
@@ -167,9 +170,9 @@ canvas {
     .logo-wrapper {
       background-image: @logo-path;
       background-repeat: no-repeat;
-      background-size: @logo-width @logo-height;
-      width: @logo-width + @padding;
-      height: @logo-height + @padding;
+      background-size: @logo-width*2 @logo-height*2;
+      width: (@logo-width + @padding) * 2;
+      height: (@logo-height + @padding) * 2;
     }
 
     &:not(.quote) {
@@ -177,12 +180,12 @@ canvas {
     }
 
     .quotemark {
-      width: @quote-width;
-      height: @quote-height;
+      width: @quote-width * 2;
+      height: @quote-height * 2;
       background-image: @quote-mark-path;
       background-repeat: no-repeat;
-      background-size: @quote-width @quote-height;
-      margin-bottom: 30px;
+      background-size: @quote-width*2 @quote-height*2;
+      margin-bottom: 30px * 2;
     }
 
     &.poster-theme1 {
@@ -190,13 +193,13 @@ canvas {
         .quotemark {
           background-image: @quote-mark-path;
           background-repeat: no-repeat;
-          background-size: @quote-width @quote-height;
+          background-size: @quote-width*2 @quote-height*2;
         }
         .logo-wrapper {
             background: @bg-color;
             background-image: @logo-path;
             background-repeat: no-repeat;
-            background-size: @logo-width @logo-height;
+            background-size: @logo-width*2 @logo-height*2;
         }
     }
 
@@ -205,13 +208,13 @@ canvas {
         .quotemark {
           background-image: @theme2-quote-mark-path;
           background-repeat: no-repeat;
-          background-size: @quote-width @quote-height;
+          background-size: @quote-width*2 @quote-height*2;
         }
         .logo-wrapper {
             background: @theme2-bg-color;
             background-image: @theme2-logo-path;
             background-repeat: no-repeat;
-            background-size: @logo-width @logo-height;
+            background-size: @logo-width*2 @logo-height*2;
         }
     }
 
@@ -220,13 +223,13 @@ canvas {
         .quotemark {
           background-image: @theme3-quote-mark-path;
           background-repeat: no-repeat;
-          background-size: @quote-width @quote-height;
+          background-size: @quote-width*2 @quote-height*2;
         }
         .logo-wrapper {
             background: @theme3-bg-color;
             background-image: @theme3-logo-path;
             background-repeat: no-repeat;
-            background-size: @logo-width @logo-height;
+            background-size: @logo-width*2 @logo-height*2;
         }
     }
 
@@ -235,13 +238,13 @@ canvas {
         .quotemark {
           background-image: @theme4-quote-mark-path;
           background-repeat: no-repeat;
-          background-size: @quote-width @quote-height;
+          background-size: @quote-width*2 @quote-height*2;
         }
         .logo-wrapper {
             background: @theme4-bg-color;
             background-image: @theme4-logo-path;
             background-repeat: no-repeat;
-            background-size: @logo-width @logo-height;
+            background-size: @logo-width*2 @logo-height*2;
         }
     }
 
@@ -250,13 +253,13 @@ canvas {
         .quotemark {
           background-image: @theme5-quote-mark-path;
           background-repeat: no-repeat;
-          background-size: @quote-width @quote-height;
+          background-size: @quote-width*2 @quote-height*2;
         }
         .logo-wrapper {
             background: @theme5-bg-color;
             background-image: @theme5-logo-path;
             background-repeat: no-repeat;
-            background-size: @logo-width @logo-height;
+            background-size: @logo-width*2 @logo-height*2;
         }
     }
 
@@ -265,13 +268,13 @@ canvas {
         .quotemark {
           background-image: @theme6-quote-mark-path;
           background-repeat: no-repeat;
-          background-size: @quote-width @quote-height;
+          background-size: @quote-width*2 @quote-height*2;
         }
         .logo-wrapper {
             background: @theme6-bg-color;
             background-image: @theme6-logo-path;
             background-repeat: no-repeat;
-            background-size: @logo-width @logo-height;
+            background-size: @logo-width*2 @logo-height*2;
         }
     }
 
@@ -280,55 +283,54 @@ canvas {
         .quotemark {
           background-image: @theme7-quote-mark-path;
           background-repeat: no-repeat;
-          background-size: @quote-width @quote-height;
+          background-size: @quote-width*2 @quote-height*2;
         }
         .logo-wrapper {
             background: @theme7-bg-color;
             background-image: @theme7-logo-path;
             background-repeat: no-repeat;
-            background-size: @logo-width @logo-height;
+            background-size: @logo-width*2 @logo-height*2;
         }
     }
 
 
     &.sixteen-by-nine {
-        height: 360px;
-        padding: @padding;
+        height: 720px;
+        padding: @padding * 2;
 
         blockquote {
-            margin-bottom: 45px;
+            margin-bottom: 45px * 2;
         }
 
         .logo-wrapper {
-          width: 51px * 0.9;
-          height: 45px * 0.9;
-          top: @padding * 1;
-          right: @padding * 1;
+          width: (51px * 0.9) * 2;
+          height: (45px * 0.9) *2;
+          top: @padding * 2;
+          right: @padding * 2;
           background-size: cover;
         }
 
         p.source {
-            font-size: 14px;
+            font-size: 14px * 2;
         }
 
         .show-credit {
-            font-size: 16px;
+            font-size: 16px * 2;
         }
 
         .quotemark {
-          width: @quote-width * 0.8;
-          height: @quote-height * 0.8;
-          background-image: @quote-mark-path;
+          width: (@quote-width * 0.8) * 2;
+          height: (@quote-height * 0.8) * 2;
           background-repeat: no-repeat;
-          background-size: @quote-width*0.8 @quote-height*0.8;
-          margin-bottom: 26px;
+          background-size: @quote-width*0.8*2 @quote-height*0.8*2;
+          margin-bottom: 26px * 2;
         }
     }
 
 
     .text {
       z-index: 100;
-      width: calc(~"100% - " (@logo-width + @padding));
+      width: calc(~"100% - " (@logo-width + @padding) * 2);
     }
 
     .left-quote,
@@ -338,7 +340,7 @@ canvas {
 
     blockquote {
         padding: 0;
-        margin: 0 0 60px;
+        margin: 0 0 60px * 2;
         border-left: none;
         font-size: inherit;
         line-height: 100%;
@@ -379,26 +381,26 @@ canvas {
         }
 
         .show-credit {
-            line-height: 1.2 !important;
+            line-height: 1.2 * 2 !important;
         }
     }
 
     p.source {
-        font-size: @base-font-size;
+        font-size: @base-font-size * 2;
         font-weight: 800;
-        line-height: 1.3;
+        line-height: 1.3 * 2;
         display: block;
         margin-top: 0;
         text-transform: uppercase;
-        letter-spacing: 4px;
+        letter-spacing: 4px * 2;
         font-family: @font-family-medium;
     }
 
     .show-credit {
         display: block;
-        font-size: @base-font-size;
-        margin-top: @credit-margin;
-        letter-spacing: 1.5px;
+        font-size: @base-font-size * 2;
+        margin-top: @credit-margin * 2;
+        letter-spacing: 1.5px * 2;
     }
 
     p.source,
@@ -413,17 +415,17 @@ canvas {
         position: absolute;
         width: 100%;
         z-index: 50;
-        top: @padding * 1.5;
-        right: @padding * .5;
+        top: @padding * 1.5 * 2;
+        right: @padding * .5 * 2;
         text-align: right;
         margin: 0;
-        font-size: 46px;
+        font-size: 46px * 2;
         background: @bg-color;
         background-image: @logo-path;
         background-repeat: no-repeat;
-        background-size: @logo-width @logo-height;
-        width: @logo-width + @padding;
-        height: @logo-height + @padding;
+        background-size: @logo-width*2 @logo-height*2;
+        width: (@logo-width + @padding)*2;
+        height: (@logo-height + @padding)*2;
 
         .logo {
             .hide;

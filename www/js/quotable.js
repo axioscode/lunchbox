@@ -21,14 +21,14 @@ var quotes = [
 
 var sizes = {
   square: {
-    val: 40,
-    min: 32,
-    max: 48
+    val: 80,
+    min: 64,
+    max: 96
   },
   sixteenbynine: {
-    val: 32,
-    min: 25,
-    max: 40
+    val: 64,
+    min: 50,
+    max: 80
   }
 };
 
@@ -129,7 +129,7 @@ $(function() {
     if (quote.size){
         adjustFontSize(quote.size);
     } else {
-        adjustFontSize(40);
+        adjustFontSize(80);
     }
 
     $('blockquote p').text(quote.quote);
