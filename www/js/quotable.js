@@ -13,44 +13,24 @@ var $logoWrapper = null;
 
 var quotes = [
     {
-        "quote": "I'd been drinking.",
-        "source": "Dennis Rodman"
-    },
-    {
-        "quote": "I've made a huge mistake.",
-        "source": "G.O.B."
-    },
-    {
-        "quote": "Yes, I have smoked crack cocaine",
-        "source": "Toronto Mayor Rob Ford",
-    },
-    {
-        "quote": "Annyong.",
-        "source": "Annyong",
-    },
-    {
-        "quote": "STEVE HOLT!",
-        "source": "Steve Holt",
-    },
-    {
-        "quote": "Whoa, whoa, whoa. There's still plenty of meat on that bone. Now you take this home, throw it in a pot, add some broth, a potato. Baby, you've got a stew going.",
-        "source": "Carl Weathers",
+        "quote": "Type your quote here",
+        "source": "Type your source here"
     }
 ];
 
 
 var sizes = {
-  'square': {
-    'default': 40,
-    'min': 35,
-    'max': 45
+  square: {
+    val: 40,
+    min: 32,
+    max: 48
   },
-  'sixteenbynine': {
-    'default': 32,
-    'min': 27,
-    'max': 37
+  sixteenbynine: {
+    val: 32,
+    min: 25,
+    max: 40
   }
-}
+};
 
 
 // Change straight quotes to curly and double hyphens to em-dashes.
@@ -149,8 +129,9 @@ $(function() {
     if (quote.size){
         adjustFontSize(quote.size);
     } else {
-        adjustFontSize(40) //set default font size;
+        adjustFontSize(40);
     }
+
     $('blockquote p').text(quote.quote);
     $source.html(quote.source);
     processText();
@@ -170,15 +151,15 @@ $(function() {
         $poster.removeClass('square sixteen-by-nine').addClass($(this).attr('id'));
 
         if ($poster.hasClass('sixteen-by-nine')) {
-            $fontSize.attr('min', sizes.sixteenbynine.min);
-            $fontSize.attr('max', sizes.sixteenbynine.max);
-            $fontSize.val(sizes.sixteenbynine.default);
-            adjustFontSize(sizes.sixteenbynine.default);
+          $fontSize.attr('min', sizes.sixteenbynine.min);
+          $fontSize.attr('max', sizes.sixteenbynine.max);
+          $fontSize.val(sizes.sixteenbynine.val);
+          adjustFontSize(sizes.sixteenbynine.val);
         } else {
           $fontSize.attr('min', sizes.square.min);
           $fontSize.attr('max', sizes.square.max);
-          $fontSize.val(sizes.square.default);
-          adjustFontSize(sizes.square.default);
+          $fontSize.val(sizes.square.val);
+          adjustFontSize(sizes.square.val);
         }
     });
 
@@ -214,6 +195,6 @@ $(function() {
 
     var sourceEditor = new MediumEditor(sourceEl, {
         disableToolbar: true,
-        placeholder: 'Type your quote source here'
+        placeholder: 'Type your source here'
     });
 });
