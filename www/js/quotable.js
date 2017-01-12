@@ -39,6 +39,20 @@ var quotes = [
 ];
 
 
+var sizes = {
+  'square': {
+    'default': 40,
+    'min': 35,
+    'max': 45
+  },
+  'sixteenbynine': {
+    'default': 32,
+    'min': 27,
+    'max': 37
+  }
+}
+
+
 // Change straight quotes to curly and double hyphens to em-dashes.
 function smarten(a) {
   a = a.replace(/(^|[-\u2014\s(\["])'/g, "$1\u2018");       // opening singles
@@ -155,13 +169,17 @@ $(function() {
         $(this).addClass('active');
         $poster.removeClass('square sixteen-by-nine').addClass($(this).attr('id'));
 
-        // if ($poster.hasClass('sixteen-by-nine')) {
-        //     adjustFontSize(32);
-        //     $fontSize.val(32);
-        // } else {
-        //     adjustFontSize(90);
-        //     $fontSize.val(90);
-        // }
+        if ($poster.hasClass('sixteen-by-nine')) {
+            $fontSize.attr('min', sizes.sixteenbynine.min);
+            $fontSize.attr('max', sizes.sixteenbynine.max);
+            $fontSize.val(sizes.sixteenbynine.default);
+            adjustFontSize(sizes.sixteenbynine.default);
+        } else {
+          $fontSize.attr('min', sizes.square.min);
+          $fontSize.attr('max', sizes.square.max);
+          $fontSize.val(sizes.square.default);
+          adjustFontSize(sizes.square.default);
+        }
     });
 
     $quote.on('click', function() {
