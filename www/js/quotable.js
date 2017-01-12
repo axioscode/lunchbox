@@ -28,7 +28,7 @@ var sizes = {
   sixteenbynine: {
     val: 64,
     min: 50,
-    max: 80
+    max: 78
   }
 };
 
