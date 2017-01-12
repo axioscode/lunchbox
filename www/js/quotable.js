@@ -23,22 +23,18 @@ var quotes = [
     {
         "quote": "Yes, I have smoked crack cocaine",
         "source": "Toronto Mayor Rob Ford",
-        "size": 50
     },
     {
         "quote": "Annyong.",
         "source": "Annyong",
-        "size": 50
     },
     {
         "quote": "STEVE HOLT!",
         "source": "Steve Holt",
-        "size": 45
     },
     {
         "quote": "Whoa, whoa, whoa. There's still plenty of meat on that bone. Now you take this home, throw it in a pot, add some broth, a potato. Baby, you've got a stew going.",
         "source": "Carl Weathers",
-        "size": 40
     }
 ];
 
@@ -138,6 +134,8 @@ $(function() {
     var quote = quotes[Math.floor(Math.random()*quotes.length)];
     if (quote.size){
         adjustFontSize(quote.size);
+    } else {
+        adjustFontSize(40) //set default font size;
     }
     $('blockquote p').text(quote.quote);
     $source.html(quote.source);
