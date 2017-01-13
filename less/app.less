@@ -179,10 +179,11 @@ header {
 
     @media screen and (max-width: @screen-xs-max){
         .controls-wrapper {
-            font-size: 250%;
+            font-size: 100%;
+            padding: @padding;
             .btn {
                 font-size: 100%;
-                height: 88px;
+                // height: 88px;
                 min-width: 88px;
             }
         }
@@ -229,6 +230,17 @@ header {
             }
          }
     }
+}
+
+.color-picker {
+  #theme1 { background-color: @bg-color; &:hover { background-color: @secondary-color} }
+  #theme2 { background-color: @theme2-bg-color; &:hover { background-color: @theme2-secondary-color} }
+  #theme3 { background-color: @theme3-bg-color; &:hover { background-color: @theme3-secondary-color} }
+  #theme4 { background-color: @theme4-bg-color; &:hover { background-color: @theme4-secondary-color} }
+  #theme5 { background-color: @theme5-bg-color; &:hover { background-color: @theme5-secondary-color} }
+  #theme6 { background-color: @theme6-bg-color; &:hover { background-color: @theme6-secondary-color} }
+  #theme7 { background-color: @theme7-bg-color; &:hover { background-color: @theme7-secondary-color} }
+
 }
 
 .controls-wrapper {
