@@ -44,7 +44,7 @@ var onDocumentLoad = function() {
     updateTimestamp();
     timestampInterval = setInterval(updateTimestamp, 1000);
     setupMediumEditor();
-    
+
     $('[data-toggle="tooltip"]').tooltip();
 }
 
@@ -161,7 +161,7 @@ var adjustFontSize = function(e, size) {
 var onThemeClick = function(e) {
     $themeButtons.removeClass().addClass('btn btn-primary');
     $(this).addClass('active');
-    $poster.removeClass('poster-theme1 poster-theme2 poster-theme3 poster-theme4')
+    $poster.removeClass('poster-theme1 poster-theme2 poster-theme3 poster-theme4 poster-theme5 poster-theme6 poster-theme7')
                 .addClass('poster-' + $(this).attr('id'));
 }
 
