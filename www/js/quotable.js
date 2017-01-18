@@ -129,7 +129,7 @@ $(function() {
     if (quote.size){
         adjustFontSize(quote.size);
     } else {
-        adjustFontSize(80);
+        adjustFontSize(sizes.sixteenbynine.val);
     }
 
     $('blockquote p').text(quote.quote);
