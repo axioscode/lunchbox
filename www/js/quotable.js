@@ -63,10 +63,10 @@ function saveImage() {
     // first check if the quote actually fits
     // console.log("QUOTE TOP", $quote.offset().top);
     // console.log("LOGO BOTTOM", $(window).height() - $logoWrapper.offset().top - $logoWrapper.height());
-    if (($quote.offset().top) > $text.offset().top + 20) {
-        alert("Your quote doesn't quite fit. Shorten the text or choose a smaller font-size.");
-        return;
-    }
+    // if (($quote.offset().top) > $text.offset().top + 25) {
+    //     alert("Your quote doesn't quite fit. Shorten the text or choose a smaller font-size.");
+    //     return;
+    // }
 
     // don't print placeholder text if source is empty
     if ($source.text() === '') {
