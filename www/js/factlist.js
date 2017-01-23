@@ -6,13 +6,28 @@ var $themeButtons = null;
 var $aspectRatioButtons = null;
 var $fontSize = null;
 var $timestamp = null;
-var $timestampToggleButtons = null;
+var $bulletsToggleButtons = null;
 var $kicker = null;
 var $kickerInput = null;
 var $source = null;
 var $logoWrapper = null;
 var $updateTime = null;
-var timestampInterval = null;
+var $listItems = null;
+var $list = null;
+
+var sizes = {
+  square: {
+    val: 80,
+    min: 64,
+    max: 96
+  },
+  sixteenbynine: {
+    val: 64,
+    min: 50,
+    max: 78
+  }
+};
+
 
 /*
  * Run on page load.
@@ -26,23 +41,22 @@ var onDocumentLoad = function() {
     $aspectRatioButtons = $('#aspect-ratio .btn');
     $fontSize = $('#fontsize');
     $timestamp = $('.timestamp');
-    $timestampToggleButtons = $('#timestamp-toggle .btn');
+    $bulletsToggleButtons = $('#bullet-toggle .btn');
     $kicker = $('.kicker');
     $kickerInput = $('#kicker');
     $logoWrapper = $('.logo-wrapper');
-    $updateTime = $('#update-time');
+    $list = $('.fact-list');
+    $listItems = $('ul.fact-list').children();
 
     $save.on('click', saveImage);
     $themeButtons.on('click', onThemeClick);
     $aspectRatioButtons.on('click', onAspectRatioClick);
-    $timestampToggleButtons.on('click', onTimestampToggleClick);
+    $bulletsToggleButtons.on('click', onBulletToggleClick);
     $fontSize.on('change', adjustFontSize);
     $kickerInput.on('keyup', onKickerKeyup);
 
-    adjustFontSize(null, 32);
+    adjustFontSize(null, sizes.sixteenbynine.val);
     processText();
-    updateTimestamp();
-    timestampInterval = setInterval(updateTimestamp, 1000);
     setupMediumEditor();
 
     $('[data-toggle="tooltip"]').tooltip();
@@ -82,15 +96,6 @@ var processText = function() {
     });
 }
 
-/*
- * Set the timestamp text to the current time
- */
-var updateTimestamp = function() {
-    var latestTime = moment().format('MMMM D, YYYY h:mm A');
-    if (latestTime != $timestamp.text()) {
-       $timestamp.text(latestTime);
-    }
-}
 
 /*
  * Convert the poster HTML/CSS to canvas and export an image
@@ -149,7 +154,7 @@ var adjustFontSize = function(e, size) {
     var newSize = size||$(this).val();
 
     var fontSize = newSize.toString() + 'px';
-    $poster.css('font-size', fontSize);
+    $list.css('font-size', fontSize);
     if ($fontSize.val() !== newSize){
         $fontSize.val(newSize);
     };
@@ -174,27 +179,32 @@ var onAspectRatioClick = function(e) {
     $poster.removeClass('square sixteen-by-nine').addClass($(this).attr('id'));
 
     if ($poster.hasClass('sixteen-by-nine')) {
-        $fontSize.attr('min', 24);
-        $fontSize.val(24);
-        adjustFontSize(null, 32);
+        $fontSize.attr('min', sizes.sixteenbynine.min);
+        $fontSize.attr('max', sizes.sixteenbynine.max);
+        $fontSize.val(sizes.sixteenbynine.val);
+        adjustFontSize(null, sizes.sixteenbynine.val);
     } else {
-        $fontSize.attr('min', 32);
-        $fontSize.val(42);
-        adjustFontSize(null, 42);
+      $fontSize.attr('min', sizes.square.min);
+      $fontSize.attr('max', sizes.square.max);
+      $fontSize.val(sizes.square.val);
+      adjustFontSize(null, sizes.square.val);
     }
 }
 
 /*
  * Select the poster aspect ratio
  */
-var onTimestampToggleClick = function(e) {
-    $timestampToggleButtons.removeClass().addClass('btn btn-primary');
+var onBulletToggleClick = function(e) {
+    $bulletsToggleButtons.removeClass().addClass('btn btn-primary');
     $(this).addClass('active');
-    if ($(this).attr('id') === 'show-timestamp') {
-        $timestamp.show();
+    var oldHTML = $list.html();
+    console.log($(this).attr('id'));
+    if ($(this).attr('id') === 'show-bullets') {
+      $list.replaceWith($('<ul>' + oldHTML + '</ul>'));
     } else {
-        $timestamp.hide();
+      $list.replaceWith($('<ol>' + oldHTML + '</ol>'));
     }
+    $list = $('.fact-list');
 }
 
 /*

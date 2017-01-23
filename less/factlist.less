@@ -175,6 +175,42 @@ canvas {
     line-height: 1 !important;
     overflow: hidden;
     color: @text-color;
+    display: flex;
+    flex-direction: column;
+
+    .fact-list {
+      font-feature-settings: "liga" 0;
+      font-family: @font-family-serif;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+    }
+
+
+    ul, ol {
+      line-height: 1.2em;
+      li {
+        margin-bottom: .375em;
+        padding-left: @padding;
+      }
+    };
+
+    ul {
+      list-style: none;
+      -webkit-margin-before: 0em;
+      -webkit-margin-after: 1em;
+      -webkit-margin-start: 0px;
+      -webkit-margin-end: 0px;
+      -webkit-padding-start: 0px;
+
+      li:before {
+        content: "\2022";
+        color: white;
+        opacity: 0.5;
+        margin-right: @padding * 2;
+        position: absolute;
+        left: @padding;
+      }
+    }
 
     .logo-wrapper {
       background-image: @logo-path;
@@ -340,7 +376,7 @@ canvas {
     }
 
     blockquote {
-        padding: 0 0 0 1em;
+        // padding: 0 0 0 1em;
         margin: 0 0 @line-height * 2;
         border-left: none;
         font-size: @base-font-size * 2;
