@@ -22,9 +22,9 @@ var sizes = {
     max: 96
   },
   sixteenbynine: {
-    val: 64,
-    min: 50,
-    max: 78
+    val: 61,
+    min: 47,
+    max: 75
   }
 };
 
@@ -101,25 +101,25 @@ var processText = function() {
  * Convert the poster HTML/CSS to canvas and export an image
  */
 var saveImage = function() {
-    // first check if the quote actually fits
-    if (($factList.offset().top + $factList.height()) > $logoWrapper.offset().top) {
-        var tooTallMessage = "Your list is too long. Shorten the text or choose a smaller font-size.";
-    }
+    // // first check if the quote actually fits
+    // if (($factList.offset().top + $factList.height()) > $logoWrapper.offset().top) {
+    //     var tooTallMessage = "Your list is too long. Shorten the text or choose a smaller font-size.";
+    // }
+    //
+    // if ($kicker.width() > $poster.width()) {
+    //     var tooWideMessage = "Your headline is too wide. Shorten the headline.";
+    // }
 
-    if ($kicker.width() > $poster.width()) {
-        var tooWideMessage = "Your headline is too wide. Shorten the headline.";
-    }
-
-    if (tooTallMessage || tooWideMessage) {
-          var alertMessage;
-          if (tooTallMessage && tooWideMessage) {
-              alertMessage = tooTallMessage + '\n' + tooWideMessage;
-          } else {
-              alertMessage = (tooTallMessage) ? tooTallMessage : tooWideMessage;
-          }
-          alert(alertMessage);
-          return;
-    }
+    // if (tooTallMessage || tooWideMessage) {
+    //       var alertMessage;
+    //       if (tooTallMessage && tooWideMessage) {
+    //           alertMessage = tooTallMessage + '\n' + tooWideMessage;
+    //       } else {
+    //           alertMessage = (tooTallMessage) ? tooTallMessage : tooWideMessage;
+    //       }
+    //       alert(alertMessage);
+    //       return;
+    // }
 
     $('canvas').remove();
     processText();
@@ -155,6 +155,7 @@ var adjustFontSize = function(e, size) {
 
     var fontSize = newSize.toString() + 'px';
     $list.css('font-size', fontSize);
+    $kicker.css('font-size', fontSize);
     if ($fontSize.val() !== newSize){
         $fontSize.val(newSize);
     };
@@ -197,14 +198,12 @@ var onAspectRatioClick = function(e) {
 var onBulletToggleClick = function(e) {
     $bulletsToggleButtons.removeClass().addClass('btn btn-primary');
     $(this).addClass('active');
-    var oldHTML = $list.html();
     console.log($(this).attr('id'));
     if ($(this).attr('id') === 'show-bullets') {
-      $list.replaceWith($('<ul>' + oldHTML + '</ul>'));
+      $factList.addClass("unordered-list").removeClass("ordered-list")
     } else {
-      $list.replaceWith($('<ol>' + oldHTML + '</ol>'));
+      $factList.addClass("ordered-list").removeClass("unordered-list")
     }
-    $list = $('.fact-list');
 }
 
 /*
