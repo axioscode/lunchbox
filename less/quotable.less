@@ -15,6 +15,7 @@ html {
 body {
     background: @gray-lighter;
     min-width: 680px * @scale-factor;
+    overflow-x: hidden;
 }
 
 canvas {
@@ -45,19 +46,24 @@ canvas {
         zoom: 1 / @scale-factor;
     }
 
+    .controls-wrapper {
+      max-width: calc(~"100vw - 640px - " @padding*2 + @padding);
+    }
+
     @media screen and (max-width: @screen-sm-max){
         display: block;
 
         .container {
           padding: @padding;
           margin: 0;
+          max-width: 100vw;
         }
         .poster-wrapper,
         .container {
             display: block;
         }
         .controls-wrapper {
-          max-width: 512px * @scale-factor;
+          max-width: 640px;
         }
     }
 
@@ -71,14 +77,14 @@ canvas {
 
         #fontsize {
             display: block;
-            width: 90%;
+            width: 66%;
         }
     }
 
     .touch & {
         input[type="range"]{
             background: #fff;
-            width: 100%;
+            width: 66%;
             height: 88px;
             -webkit-appearance: none;
             border-radius: 8px;
