@@ -101,25 +101,25 @@ var processText = function() {
  * Convert the poster HTML/CSS to canvas and export an image
  */
 var saveImage = function() {
-    // // first check if the quote actually fits
-    // if (($factList.offset().top + $factList.height()) > $logoWrapper.offset().top) {
-    //     var tooTallMessage = "Your list is too long. Shorten the text or choose a smaller font-size.";
-    // }
-    //
-    // if ($kicker.width() > $poster.width()) {
-    //     var tooWideMessage = "Your headline is too wide. Shorten the headline.";
-    // }
+    // first check if the quote actually fits
+    if (($factList.offset().top + $factList.height()) > $logoWrapper.offset().top + 75) {
+        var tooTallMessage = "Your list is too long. Shorten the text or choose a smaller font-size.";
+    }
 
-    // if (tooTallMessage || tooWideMessage) {
-    //       var alertMessage;
-    //       if (tooTallMessage && tooWideMessage) {
-    //           alertMessage = tooTallMessage + '\n' + tooWideMessage;
-    //       } else {
-    //           alertMessage = (tooTallMessage) ? tooTallMessage : tooWideMessage;
-    //       }
-    //       alert(alertMessage);
-    //       return;
-    // }
+    if ($factList.children().length > 6) {
+        var tooManyItems = "You have too many items in this list. Factlist is only meant for short, social graphics.";
+    }
+
+    if (tooTallMessage || tooManyItems) {
+          var alertMessage;
+          if (tooTallMessage && tooManyItems) {
+              alertMessage = tooTallMessage + '\n' + tooManyItems;
+          } else {
+              alertMessage = (tooTallMessage) ? tooTallMessage : tooManyItems;
+          }
+          alert(alertMessage);
+          return;
+    }
 
     $('canvas').remove();
     processText();
