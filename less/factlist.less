@@ -9,12 +9,12 @@
 @scale-factor: 2;
 
 html {
-    min-width: 680px;
+    min-width: 680px * @scale-factor;
 }
 
 body {
     background: @gray-lighter;
-    min-width: 680px;
+    min-width: 680px * @scale-factor;
 }
 
 canvas {
@@ -22,7 +22,7 @@ canvas {
     background: @bg-color;
     min-width: 680px * @scale-factor;
     max-width: 100vw;
-    min-height: 450px * @scale-factor;
+    min-height: 360px * @scale-factor;
     max-height: 100vh;
 }
 
@@ -31,6 +31,7 @@ canvas {
     width: 100%;
     max-width: 1200px * @scale-factor;
     min-width: 640px * @scale-factor;
+    min-height: 740px * @scale-factor;
     margin: 0 auto;
 
     .poster-wrapper,
@@ -40,7 +41,7 @@ canvas {
     }
 
     .poster-wrapper {
-        width: 640px * 2;
+        width: 640px * @scale-factor;
         zoom: .5;
     }
 
@@ -175,8 +176,8 @@ canvas {
     background: @bg-color;
     margin: @line-height;
     position: relative;
-    padding: @padding * 2;
-    font-size: @base-font-size * 2;
+    padding: @padding * @scale-factor;
+    font-size: @base-font-size * @scale-factor;
     line-height: 1 !important;
     overflow: hidden;
     color: @text-color;
@@ -193,9 +194,9 @@ canvas {
     .logo-wrapper {
       background-image: @logo-path;
       background-repeat: no-repeat;
-      background-size: @logo-width*2*2 @logo-height*2*2;
-      width: (@logo-width + @padding) * 2 * 2;
-      height: (@logo-height + @padding) * 2 * 2;
+      background-size: @logo-width*2*@scale-factor @logo-height*2*@scale-factor;
+      width: (@logo-width + @padding) * 2 * @scale-factor;
+      height: (@logo-height + @padding) * 2 * @scale-factor;
     }
 
     &:not(.quote) {
@@ -203,142 +204,103 @@ canvas {
     }
 
     .quotemark {
-      width: @quote-width * 2;
-      height: @quote-height * 2;
+      width: @quote-width * @scale-factor;
+      height: @quote-height * @scale-factor;
       background-image: @quote-mark-path;
       background-repeat: no-repeat;
-      background-size: @quote-width*2 @quote-height*2;
-      margin-bottom: 30px * 2;
+      background-size: @quote-width*@scale-factor @quote-height*@scale-factor;
+      margin-bottom: 30px * @scale-factor;
     }
 
     &.poster-theme1 {
         background: @bg-color;
-        .quotemark {
-          background-image: @quote-mark-path;
-          background-repeat: no-repeat;
-          background-size: @quote-width*2 @quote-height*2;
-        }
         .logo-wrapper {
             background: @bg-color;
             background-image: @logo-path;
             background-repeat: no-repeat;
-            background-size: @logo-width*2 @logo-height*2;
+            background-size: @logo-width*@scale-factor @logo-height*@scale-factor;
         }
     }
 
     &.poster-theme2 {
         background: @theme2-bg-color;
-        .quotemark {
-          background-image: @theme2-quote-mark-path;
-          background-repeat: no-repeat;
-          background-size: @quote-width*2 @quote-height*2;
-        }
         .logo-wrapper {
             background: @theme2-bg-color;
             background-image: @theme2-logo-path;
             background-repeat: no-repeat;
-            background-size: @logo-width*2 @logo-height*2;
+            background-size: @logo-width*@scale-factor @logo-height*@scale-factor;
         }
     }
 
     &.poster-theme3 {
         background: @theme3-bg-color;
-        .quotemark {
-          background-image: @theme3-quote-mark-path;
-          background-repeat: no-repeat;
-          background-size: @quote-width*2 @quote-height*2;
-        }
         .logo-wrapper {
             background: @theme3-bg-color;
             background-image: @theme3-logo-path;
             background-repeat: no-repeat;
-            background-size: @logo-width*2 @logo-height*2;
+            background-size: @logo-width*@scale-factor @logo-height*@scale-factor;
         }
     }
 
     &.poster-theme4 {
         background: @theme4-bg-color;
-        .quotemark {
-          background-image: @theme4-quote-mark-path;
-          background-repeat: no-repeat;
-          background-size: @quote-width*2 @quote-height*2;
-        }
         .logo-wrapper {
             background: @theme4-bg-color;
             background-image: @theme4-logo-path;
             background-repeat: no-repeat;
-            background-size: @logo-width*2 @logo-height*2;
+            background-size: @logo-width*@scale-factor @logo-height*@scale-factor;
         }
     }
 
     &.poster-theme5 {
         background: @theme5-bg-color;
-        .quotemark {
-          background-image: @theme5-quote-mark-path;
-          background-repeat: no-repeat;
-          background-size: @quote-width*2 @quote-height*2;
-        }
         .logo-wrapper {
             background: @theme5-bg-color;
             background-image: @theme5-logo-path;
             background-repeat: no-repeat;
-            background-size: @logo-width*2 @logo-height*2;
+            background-size: @logo-width*@scale-factor @logo-height*@scale-factor;
         }
     }
 
     &.poster-theme6 {
         background: @theme6-bg-color;
-        .quotemark {
-          background-image: @theme6-quote-mark-path;
-          background-repeat: no-repeat;
-          background-size: @quote-width*2 @quote-height*2;
-        }
         .logo-wrapper {
             background: @theme6-bg-color;
             background-image: @theme6-logo-path;
             background-repeat: no-repeat;
-            background-size: @logo-width*2 @logo-height*2;
+            background-size: @logo-width*@scale-factor @logo-height*@scale-factor;
         }
     }
 
     &.poster-theme7 {
         background: @theme7-bg-color;
-        .quotemark {
-          background-image: @theme7-quote-mark-path;
-          background-repeat: no-repeat;
-          background-size: @quote-width*2 @quote-height*2;
-        }
         .logo-wrapper {
             background: @theme7-bg-color;
             background-image: @theme7-logo-path;
             background-repeat: no-repeat;
-            background-size: @logo-width*2 @logo-height*2;
+            background-size: @logo-width*@scale-factor @logo-height*@scale-factor;
         }
     }
 
     &.sixteen-by-nine {
-        height: 360px * 2;
-        padding: @padding * 2;
+        height: 360px * @scale-factor;
+        padding: @padding * @scale-factor;
 
         blockquote {
-            margin-bottom: 20px * 2;
+            margin-bottom: 20px * @scale-factor;
         }
 
-        // .logo-wrapper {
-        //     padding: @padding;
-        //
-        //     img {
-        //         width: 150px;
-        //     }
-        //
-        //     .poster-music& {
-        //         padding-bottom: @padding - 10;
-        //     }
-        // }
+        .logo-wrapper {
+          width: (@logo-width * 0.9) * @scale-factor;
+          height: (@logo-height * 0.9) * @scale-factor;
+          bottom: @padding * @scale-factor;
+          right: @padding * @scale-factor;
+          background-size: @logo-width*.9*@scale-factor @logo-height*.9*@scale-factor !important;
+        }
     }
 
     h2 {
-        font-size: @base-font-size * 2;
+        font-size: @base-font-size * @scale-factor;
         font-family: @font-family-serif;
         margin-top: 0;
         margin-bottom: 1em;
@@ -350,9 +312,9 @@ canvas {
     }
 
     blockquote {
-        margin: 0 0 @line-height * 2;
+        margin: 0 0 @line-height * @scale-factor;
         border-left: none;
-        font-size: @base-font-size * 2;
+        font-size: @base-font-size * @scale-factor;
         font-family: @font-family-serif;
         line-height: 100%;
         font-weight: normal;
@@ -404,7 +366,7 @@ canvas {
     }
 
     p.timestamp {
-        font-size: @base-font-size * 2;
+        font-size: @base-font-size * @scale-factor;
         color: white;
         text-transform: uppercase;
         letter-spacing: 0.1em;
@@ -426,15 +388,16 @@ canvas {
         bottom: 0;
         right: 0;
         text-align: right;
-        padding: @padding * 2 @padding * 2 @padding * 2;
+        padding: @padding * @scale-factor @padding * @scale-factor @padding * @scale-factor;
         margin: 0;
-        font-size: 46px * 2;
+        font-size: 46px * @scale-factor;
         background: @bg-color;
         background-image: @logo-path;
         background-repeat: no-repeat;
-        background-size: @logo-width*2 @logo-height*2;
-        width: @logo-width*2 + @padding*2;
-        height: @logo-height*2 + @padding*2;
+        background-size: @logo-width*@scale-factor @logo-height*@scale-factor;
+        width: @logo-width*@scale-factor + @padding*@scale-factor;
+        height: @logo-height*@scale-factor + @padding*@scale-factor;
+
 
         .logo {
             .hide;
