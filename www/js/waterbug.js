@@ -31,7 +31,7 @@ var imageFilename = 'image';
 var currentCopyright;
 var credit = 'Belal Khan\u2005/\u2005Flickr'.toUpperCase();
 var shallowImage = false;
-
+var includeLogo = true;
 
 // JS objects
 var ctx;
@@ -50,6 +50,7 @@ var onDocumentLoad = function(e) {
     $save = $('.save-btn');
     $textColor = $('input[name="textColor"]');
     $crop = $('input[name="crop"]');
+    $includeLogo = $('input[name="include-logo"]');
     $logoColor = $('input[name="logoColor"]');
     $qualityQuestions = $('.quality-question');
     $copyrightHolder = $('.copyright-holder');
@@ -74,6 +75,7 @@ var onDocumentLoad = function(e) {
     $textColor.on('change', onTextColorChange);
     $logoColor.on('change', onLogoColorChange);
     $crop.on('change', onCropChange);
+    $includeLogo.on('change', onIncludeLogoChange);
     $canvas.on('mousedown touchstart', onDrag);
     $copyrightHolder.on('change', onCopyrightChange);
     $customFilename.on('click', function(e) {
@@ -201,13 +203,15 @@ var renderCanvas = function() {
     // } else {
     //     ctx.globalAlpha = blackLogoAlpha;
     // }
-    ctx.drawImage(
-        logo,
-        canvas.width - (logos[currentLogo]['w']),
-        0,
-        logos[currentLogo]['w'],
-        logos[currentLogo]['h']
-    );
+    if (includeLogo) {
+      ctx.drawImage(
+          logo,
+          canvas.width - (logos[currentLogo]['w']),
+          0,
+          logos[currentLogo]['w'],
+          logos[currentLogo]['h']
+      );
+    }
 
     ctx.drawImage(
         scrim,
@@ -516,6 +520,15 @@ var onCropChange = function() {
     }
     renderCanvas();
 }
+
+/*
+* Handle logo radio button clicks
+*/
+var onIncludeLogoChange = function() {
+    includeLogo = ($includeLogo.filter(':checked').val() === 'true');
+    renderCanvas();
+}
+
 
 /*
 * Show the appropriate fields based on the chosen copyright
