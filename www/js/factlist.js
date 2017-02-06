@@ -106,7 +106,7 @@ var saveImage = function() {
         var tooTallMessage = "Your list is too long. Shorten the text or choose a smaller font-size.";
     }
 
-    if ($factList.children().length > 6) {
+    if ($factList.children().length > 8) {
         var tooManyItems = "You have too many items in this list. Factlist is only meant for short, social graphics.";
     }
 
